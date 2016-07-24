@@ -3,7 +3,9 @@ githug通关笔记
 #githug通关大冒险&史上最全攻略
 
 ### 安装githug
+```
 sudo gem install githug 
+```
 
 在这个选项中，选择y
 
@@ -18,9 +20,10 @@ Difficulty: *
 A new directory, `git_hug`, has been created; initialize an empty repository in it.
 
 ## Answer #1
+```
 cd git_hug
 git init
-
+```
 
 ## Question #2
 Name: config
@@ -30,6 +33,7 @@ Difficulty: *
 Set up your git name and email, this is important so that your commits can be identified.
 
 ## Answer #2
+```
 git config -l 查看所有设置
 
 git config --unset-all user.name
@@ -37,7 +41,7 @@ git config --unset-all user.name
 git config —-add —global user.name ZZZ
 
 git config —-add —global user.email XXX@YYY
-
+```
 注解：
 
 --global              use global config file  ~/.gitconfig (or ~/.config/git/config
@@ -57,8 +61,9 @@ There is a file in your folder called `README`, you should add it to your stagin
 Note: You start each level with a new repo. Don't look for files from the previous one.
 
 ## Answer #3
- git add README
-
+```
+git add README
+```
 
 ## Question #4
 Name: commit
@@ -68,8 +73,9 @@ Difficulty: *
 The `README` file has been added to your staging area, now commit it.
 
 ## Answer #4
+```
 git commit -m "init"
-
+```
 
 ## Question #5
 Name: clone
@@ -78,8 +84,9 @@ Difficulty: *
 Clone the repository at https://github.com/Gazler/cloneme.
 
 ## Answer #5
+```
 git clone https://github.com/Gazler/cloneme
-
+```
 
 ## Question #6
 Name: clone_to_folder
@@ -89,8 +96,9 @@ Difficulty: *
 Clone the repository at https://github.com/Gazler/cloneme to `my_cloned_repo`.
 
 ## Answer #6
+```
 git clone https://github.com/Gazler/cloneme my_cloned_repo
-
+```
 ## Question #7
 Name: ignore
 Level: 7
@@ -99,7 +107,9 @@ Difficulty: **
 The text editor 'vim' creates files ending in `.swp` (swap files) for all files that are currently open.  We don't want them creeping into the repository.  Make this repository ignore `.swp` files.
 
 ## Answer #7
+```
 vi .gitignore
+```
 添加 ＊.swp
 
 
@@ -109,9 +119,11 @@ Level: 8
 Difficulty: **
 
 Notice a few files with the '.a' extension.  We want git to ignore all but the 'lib.a' file.
-vi .gitignore
 
 ## Answer #8
+```
+vi .gitignore
+```
 添加*.a !lib.a 注意字符问题
 
 
@@ -123,8 +135,10 @@ Difficulty: *
 There are some files in this repository, one of the files is untracked, which file is it?
 
 ## Answer #9
+```
 git status
-database.yml
+```
+可以看到database.yml文件为untracked状态
 
 
 ## Question #10
@@ -135,8 +149,10 @@ Difficulty: *
 There are some files in this repository, how many of the files will be committed?
 
 ## Answer #10
-git status 
-2
+```
+git status
+```
+Changes not staged for commit 的文件数为2
 
 ## Question #11
 Name: rm
@@ -146,8 +162,9 @@ Difficulty: **
 A file has been removed from the working tree, however the file was not removed from the repository.  Find out what this file was and remove it.
 
 ## Answer #11
+```
 git rm deleteme.rb
-
+```
 git rm命令把一个文件删除，并把它从git的仓库管理系统中移除。但是注意最后要执行git commit才真正提交到git仓库
 
 
@@ -160,8 +177,10 @@ A file has accidentally been added to your staging area, find out which file and
 git rm --cached <file>..." to unstage
 
 ## Answer #12
+```
 git rm --cached deleteme.rb
-
+```
+git rm --cached 仅把文件从staging区删除
 
 ## Question #13
 Name: stash
@@ -171,8 +190,9 @@ Difficulty: **
 You've made some changes and want to work on them later. You should save them, but don't commit them.
 
 ## Answer #13
+```
 git stash
-
+```
 当前工作区内容已被修改，但是并未完成。这时Boss来了，说前面的分支上面有一个Bug，需要立即修复。可是我又不想提交目前的修改，因为修改没有完成。但是，不提交的话，又没有办法checkout到前面的分支。此时用Git Stash就相当于备份工作区了。然后在Checkout过去修改，就能够达到保存当前工作区，并及时恢复的作用。
 Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.
 相当于保存当时暂存区和工作目录，想回到纯净的工作目录。
@@ -186,9 +206,10 @@ Difficulty: ***
 We have a file called `oldfile.txt`. We want to rename it to `newfile.txt` and stage this change.
 
 ## Answer #14
+```
 git mv oldfile.txt newfile.txt
 git add newfile.txt
-
+```
 
 ## Question #15
 Name: restructure
@@ -198,8 +219,10 @@ Difficulty: ***
 You added some files to your repository, but now realize that your project needs to be restructured.  Make a new folder named `src` and using Git move all of the .html files into this folder.
 
 ## Answer #15
+```
 mkdir src
 git mv *.html src
+```
 
 ## Question #16
 Name: log
@@ -209,8 +232,10 @@ Difficulty: **
 You will be asked for the hash of most recent commit.  You will need to investigate the logs of the repository for this.
 
 ## Answer #16
+```
 git log
-af37a6cea9a328fa49b37f36369ddb15a9d9abae
+```
+commit af37a6cea9a328fa49b37f36369ddb15a9d9abae
 
 
 ## Question #17
@@ -221,8 +246,9 @@ Difficulty: **
 We have a git repo and we want to tag the current commit with `new_tag`.
 
 ## Answer #17
- git tag new_tag
-
+```
+git tag new_tag
+```
 
 ## Question #18
 Name: push_tags
@@ -235,8 +261,9 @@ From /var/folders/gy/wj4_q1ss0sxd826lt10dy0ww0000gn/T/d20160119-1699-196dy5q/
  * [new branch]      master     -> origin/master
 
 ## Answer #18
- git push origin --tags
-
+```
+git push origin --tags
+```
 
 ## Question #19
 Name: commit_amend
@@ -246,9 +273,10 @@ Difficulty: **
 The `README` file has been committed, but it looks like the file `forgotten_file.rb` was missing from the commit.  Add the file and amend your previous commit to include it.
 
 ## Answer #19
+```
 git add forgotten_file.rb
 git commit --amend
-
+```
 
 ## Question #20
 Name: commit_in_future
@@ -258,7 +286,13 @@ Difficulty: **
 Commit your changes with the future date (e.g. tomorrow).
 
 ## Answer #20
+```
 git commit --date="Wed Feb 16 14:00 2037 +0100"
+```
+也可以使用下面的格式
+```
+git commit --date="2037-02-16"
+```
 
 ## Question #21
 Name: reset
@@ -268,7 +302,9 @@ Difficulty: **
 There are two files to be committed.  The goal was to add each file as a separate commit, however both were added by accident.  Unstage the file `to_commit_second.rb` using the reset command (don't commit anything).
 
 ## Answer #21
+```
 git reset HEAD to_commit_second.rb
+```
 撤销提交到暂存区的东东，重置到HEAD指针
 
 
@@ -280,8 +316,10 @@ Difficulty: **
 You committed too soon. Now you want to undo the last commit, while keeping the index.
 
 ## Answer #22
+```
 git reset --soft HEAD^1
-—-soft —hard —-mixed
+```
+reset 有3种参数 —-soft —hard —-mixed
 
 
 ## Question #23
@@ -292,8 +330,9 @@ Difficulty: ***
 A file has been modified, but you don't want to keep the modification.  Checkout the `config.rb` file from the last commit.
 
 ## Answer #23
+```
 git checkout -- config.rb
-
+```
 
 ## Question #24
 Name: remote
@@ -303,8 +342,10 @@ Difficulty: **
 This project has a remote repository.  Identify it.
 
 ## Answer #24
+```
 git remote -v
-my_remote_repo
+```
+远程库的名字为 my_remote_repo
 
 
 ## Question #25
@@ -315,9 +356,10 @@ Difficulty: **
 The remote repositories have a url associated to them.  Please enter the url of remote_location.
 
 ## Answer #25
+```
 git remote -v
-
-https://github.com/githug/not_a_repo
+```
+远程库的url为 https://github.com/githug/not_a_repo
 
 
 ## Question #26
@@ -328,8 +370,9 @@ Difficulty: **
 You need to pull changes from your origin repository.
 
 ## Answer #26
+```
 git pull origin mater
-
+```
 
 ## Question #27
 Name: remote_add
@@ -339,7 +382,9 @@ Difficulty: **
 Add a remote repository called `origin` with the url https://github.com/githug/githug
 
 ## Answer #27
+```
 git remote add origin https://github.com/githug/githug
+```
 
 ## Question #28
 Name: push
@@ -356,9 +401,10 @@ From /var/folders/gy/wj4_q1ss0sxd826lt10dy0ww0000gn/T/d20160119-2030-1j5obov/
  * [new branch]      master     -> origin/master
 
 ## Answer #28
+```
 git rebase origin/master
 git push origin master
-
+```
 
 ## Question #29
 Name: diff
@@ -368,9 +414,10 @@ Difficulty: **
 There have been modifications to the `app.rb` file since your last commit.  Find out which line has changed.
 
 ## Answer #29
- git diff app.rb
-
-26
+```
+git diff app.rb
+```
+26有改变，diff格式说明参考 http://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html
 
 ## Question #30
 Name: blame
@@ -380,8 +427,10 @@ Difficulty: **
 Someone has put a password inside the file `config.rb` find out who it was.
 
 ## Answer #30
+```
 git blame config.rb
-
+```
+可以看到每一行最后的提交记录
 
 ## Question #31
 Name: branch
@@ -391,8 +440,9 @@ Difficulty: *
 You want to work on a piece of code that has the potential to break things, create the branch test_code.
 
 ## Answer #31
+```
 git branch test_code
-
+```
 
 ## Question #32
 Name: checkout
@@ -402,8 +452,9 @@ Difficulty: **
 Create and switch to a new branch called my_branch.  You will need to create a branch like you did in the previous level.
 
 ## Answer #32
+```
 git checkout -b my_branch
-
+```
 
 ## Question #33
 Name: checkout_tag
@@ -413,8 +464,9 @@ Difficulty: **
 You need to fix a bug in the version 1.2 of your app. Checkout the tag `v1.2`.
 
 ## Answer #33
+```
 git checkout -b v1.2
-
+```
 
 ## Question #34
 Name: checkout_tag_over_branch
@@ -424,8 +476,9 @@ Difficulty: **
 You need to fix a bug in the version 1.2 of your app. Checkout the tag `v1.2` (Note: There is also a branch named `v1.2`).
 
 ## Answer #34
+```
 git checkout -b tags/v1.2
-
+```
 
 ## Question #35
 Name: branch_at
@@ -435,8 +488,9 @@ Difficulty: ***
 You forgot to branch at the previous commit and made a commit on top of it. Create branch test_branch at the commit before the last.
 
 ## Answer #35
+```
 git branch test_branch HEAD^1
-
+```
 
 ## Question #36
 Name: delete_branch
@@ -446,8 +500,9 @@ Difficulty: **
 You have created too many branches for your project. There is an old branch in your repo called 'delete_me', you should delete it.
 
 ## Answer #36
+```
 git branch -d delete_me
-
+```
 
 ## Question #37
 Name: push_branch
@@ -457,8 +512,9 @@ Difficulty: **
 You've made some changes to a local branch and want to share it, but aren't yet ready to merge it with the 'master' branch.  Push only 'test_branch' to the remote repository
 
 ## Answer #37
+```
 git push origin test_branch
-
+```
 
 ## Question #38
 Name: merge
@@ -468,8 +524,9 @@ Difficulty: **
 We have a file in the branch 'feature'; Let's merge it to the master branch.
 
 ## Answer #38
+```
 git merge feature
-
+```
 
 ## Question #39
 Name: fetch
@@ -479,8 +536,9 @@ Difficulty: **
 Looks like a new branch was pushed into our remote repository. Get the changes without merging them with the local repository
 
 ## Answer #39
+```
 git fetch origin
-
+```
 
 ## Question #40
 Name: rebase
@@ -490,9 +548,10 @@ Difficulty: **
 We are using a git rebase workflow and the feature branch is ready to go into master. Let's rebase the feature branch onto our master branch.
 
 ## Answer #40
+```
 git checkout feature
 git rebase master
-
+```
 
 ## Question #41
 Name: repack
@@ -503,7 +562,11 @@ Optimise how your repository is packaged ensuring that redundant packs are remov
 
 
 ## Answer #41
-git gc [这个需要搞明白]
+```
+git gc
+```
+[这个需要搞明白]
+git gc 会将废弃的commit进行压缩，后面的练习要恢复一个已经回滚的commit，如果执行过gc就无法恢复了。参考 http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html
 
 
 ## Question #42
@@ -515,10 +578,11 @@ Your new feature isn't worth the time and you're going to delete it. But it has 
 
 ## Answer #42
 需要先查看对应提交的hash。
+```
 git checkout new-feature
 git log
 git cherry-pick  ca32a6dac7b6f97975edbe19a4296c2ee7682f68
-
+```
 
 ## Question #43
 Name: grep
@@ -528,9 +592,13 @@ Difficulty: **
 Your project's deadline approaches, you should evaluate how many TODOs are left in your code
 
 ## Answer #43
-git grep ‘TODO' 4
+```
+git grep ‘TODO'
+```
+可以看到有4行包含TODO，或者用下面的命令统计
+```
 git grep 'TODO' | wc -l
-
+```
 
 ## Question #44
 Name: rename_commit
@@ -540,7 +608,9 @@ Difficulty: ***
 Correct the typo in the message of your first (non-root) commit.
 
 ## Answer #44
+```
 git rebase -i HEAD~2
+```
 将first commit 的编辑选项改完r  就可以改名字。删除多余的m
 
 
@@ -553,10 +623,10 @@ You have committed several times but would like all those changes to be one comm
 
 
 ## Answer #45
+```
 git rebase -i HEAD~4
+```
 将后三个的命令统统改为s
-
-
 
 ## Question #46
 Name: merge_squash
@@ -566,9 +636,10 @@ Difficulty: ***
 Merge all commits from the long-feature-branch as a single commit.
 
 ## Answer #46
+```
 git merge --squash long-feature-branch
 git commit -m "XXX"
-
+```
 
 ## Question #47
 Name: reorder
@@ -578,7 +649,9 @@ Difficulty: ****
 You have committed several times but in the wrong order. Please reorder your commits.
 
 ## Answer #47
+```
 git rebase -i HEAD~3
+```
 颠倒下顺序。
 
 
@@ -589,17 +662,23 @@ Difficulty: ***
 
 A bug was introduced somewhere along the way.  You know that running `ruby prog.rb 5` should output 15.  You can also run `make test`.  What are the first 7 chars of the hash of the commit that introduced the bug.
 
-
 ## Answer #48
+```
 git bisect start
 git bisect good f608824
 git bisect master
-
+```
 每次都运行make test 运行成功 git bisect good 运行失败 git bisect bad
-
-18ed2ac
-
- 或者直接运行 git bisect run make test
+这道最后一次运行成功的commit hash 为 18ed2ac
+参考 http://gitbook.liuhui998.com/5_4.html
+或者直接运行 
+```
+git bisect run make test
+```
+或者使用下面的命令查看prog.rb文件的修改历史
+```
+git log -p prog.rb
+```
 
 ## Question #49
 Name: stage_lines
@@ -610,7 +689,9 @@ You've made changes within a single file that belong to two different features, 
 
 
 ## Answer #49
+```
 git add feature.rb -e
+```
 进入到编辑模式，将第二个提交删掉
 
 
@@ -623,6 +704,7 @@ You have been working on a branch but got distracted by a major issue and forgot
 
 
 ## Answer #50
+```
 git reflog
 
 894a16d HEAD@{0}: commit: commit another todo
@@ -632,8 +714,8 @@ git reflog
 6876e5b HEAD@{4}: checkout: moving from kill_the_batman to blowup_sun_for_ransom
 6876e5b HEAD@{5}: checkout: moving from cure_common_cold to kill_the_batman
 6876e5b HEAD@{6}: commit (initial): initial commit
-
-solve_world_hunger
+```
+之前的branch名字为 solve_world_hunger
 
 
 
@@ -646,7 +728,9 @@ You have committed several times but want to undo the middle commit.
 All commits have been pushed, so you can't change existing history.
 
 ## Answer #51
+```
 git revert ba649f24864329840bc97fe6117e69600c0fd8b2
+```
 
 ## Question #52
 Name: restore
@@ -656,9 +740,11 @@ Difficulty: ****
 You decided to delete your latest commit by running `git reset --hard HEAD^`.  (Not a smart thing to do.)  You then change your mind, and want that commit back.  Restore the deleted commit.
 
 ## Answer #52
+```
 git reflog 比较详细的列出ref的变更历史
 git cherry-pick
-
+```
+或者参考 http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html
 
 ## Question #53
 Name: conflict
@@ -669,12 +755,12 @@ You need to merge mybranch into the current branch (master). But there may be so
 
 
 ## Answer #53
+```
 git merge mybranch
- vi poem.txt 去除冲突部分
+vi poem.txt 去除冲突部分
 git add poem.txt
-
- git commit -m "deal with conflict"
-
+git commit -m "deal with conflict"
+```
 
 ## Question #54
 Name: submodule
@@ -685,8 +771,9 @@ You want to include the files from the following repo: `https://github.com/jackm
 
 
 ## Answer #54
- git submodule add https://github.com/jackmaney/githug-include-me ./githug-include-me
-
+```
+git submodule add https://github.com/jackmaney/githug-include-me ./githug-include-me
+```
 
 ## Question #55
 Name: contribute
